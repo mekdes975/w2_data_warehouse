@@ -11,7 +11,7 @@ The data warehouse follows an ELT (Extract Load Transform) framework, which allo
 
     Data Sources: The raw data is collected from swarm UAVs and static roadside cameras, capturing vehicle trajectory information. These data sources feed into the data warehouse for further processing and analysis.
 
-    MySQL/PostgreSQL Database: The data warehouse utilizes either MySQL or PostgreSQL as the relational database management system (RDBMS) for storing and querying the collected data. Choose one of these databases based on your specific requirements and preferences.
+   PostgreSQL Database: The data warehouse utilizes either PostgreSQL as the relational database management system (RDBMS) for storing and querying the collected data. Choose one of these databases based on your specific requirements and preferences.
 
     DBT (Data Build Tool): DBT is a powerful tool used for Extract Load Transform (ELT) workflows. It allows you to define transformations and build data models on top of your raw data. With DBT, you can create reusable and maintainable SQL transformations, manage dependencies between tables, and ensure data consistency.
 
@@ -29,25 +29,7 @@ This repository is organized as follows:
 
     README.md: This file provides an overview of the project, its objectives, and the repository's structure.
 
-##Getting Started
 
-To set up the data warehouse and start processing the city traffic data, follow these steps:
-
-    Choose either MySQL or PostgreSQL as your RDBMS, and ensure it is installed and properly configured on your system.
-
-    Set up DBT by installing it on your machine. Refer to the DBT documentation for installation instructions: https://docs.getdbt.com/
-
-    Configure the DBT project located in the /dbt directory. Customize the database connection settings in the profiles.yml file to point to your MySQL or PostgreSQL instance.
-
-    Define the necessary transformations in DBT by creating SQL files in the /dbt/models directory. These transformations should process the raw vehicle trajectory data into meaningful insights and analytics.
-
-    Set up Airflow by installing it on your machine. Refer to the Airflow documentation for installation instructions: https://airflow.apache.org/docs/
-
-    Customize the Airflow DAGs located in the /airflow/dags directory. These DAGs should define the workflow and scheduling for executing the DBT jobs. Adjust the schedule and dependencies according to your needs.
-
-    Test the data pipeline by running the Airflow DAGs and monitoring the execution. Ensure that the data is loaded into the database and the transformations are applied successfully.
-
-    Once the data pipeline is running smoothly, you can explore different downstream projects and analytics that leverage the data stored in the data warehouse. Use SQL queries or BI tools to query and analyze the data for various use cases.
 
 ##Conclusion
 
