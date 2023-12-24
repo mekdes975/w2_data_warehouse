@@ -1,5 +1,5 @@
 
-#Data Warehouse for City Traffic Data - 
+# Data Warehouse for City Traffic Data - 
 
 This repository contains the necessary information and resources to set up a scalable data warehouse for city traffic data. The data warehouse is designed to store and analyze vehicle trajectory data collected by swarm UAVs (drones) and static roadside cameras. The data warehouse uses a tech stack comprising PostgreSQL as the database, DBT for Extract Load Transform (ELT) workflows, and Airflow for workflow orchestration.
 Business Need
@@ -17,7 +17,7 @@ The data warehouse follows an ELT (Extract Load Transform) framework, which allo
 
     Airflow: Airflow is an open-source platform used for workflow orchestration and scheduling. It provides a rich set of features for managing and automating data pipelines. In this project, Airflow is used to schedule and execute DBT jobs, ensuring that the data transformations are performed on a regular basis.
 
-##Repository Structure
+## Repository Structure
 
 This repository is organized as follows:
 
@@ -31,6 +31,6 @@ This repository is organized as follows:
 
 
 
-##Conclusion
+## Conclusion
 
 By setting up this scalable data warehouse for city traffic data, you can efficiently store, process, and analyze vehicle trajectory data collected from swarm UAVs and static roadside cameras. The ELT framework using DBT allows you to define and manage data transformations effectively, while Airflow ensures the orchestration and scheduling of the data pipeline. With this infrastructure in place, you can support various downstream projects and initiatives to improve traffic flow and gain critical intelligence from the collected data
