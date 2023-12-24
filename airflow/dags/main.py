@@ -1,5 +1,5 @@
 
-from datetime import datetime, timedelta
+'''from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 import sys 
@@ -8,9 +8,8 @@ import os
 
 
 
-from src.extract_data_source import get_data
-from src.transform_data import transform_data
-from src.load_data import load_data
+
+
 import requests
 import json
 import os
@@ -23,6 +22,7 @@ default_args = {
     'owner': 'admin',
     'depends_on_past': False,
     'email': ['mekmeskassa@gmail.com'],
+    'start_date': datetime(2023,12,21),
     'email_on_failure': False,
     'email_on_retry': False,
     'retries': 5,
@@ -35,7 +35,7 @@ default_args = {
 dag = DAG(
     dag_id='new_dag',
     default_args=default_args,
-    start_date=datetime(2023, 12, 19),
+    catchup=False,
     schedule_interval= "@daily" ) 
 
 
@@ -64,3 +64,64 @@ task3 = PythonOperator(
 # Set task1 "upstream" of task2
 # task1 must be completed before task2 can be started
 task1 >> task2 >> task3
+
+'''
+
+
+
+
+from datetime import datetime, timedelta
+from airflow import DAG
+#from airflow.operators.dummy_operator import DummyOperator
+from airflow.operators.python import PythonOperator
+
+# Define default_args dictionary to specify the default parameters of the DAG
+default_args = {
+    'owner': 'airflow',
+    'depends_on_past': False,
+    'start_date': datetime(2023, 1, 1),
+    'email_on_failure': False,
+    'email_on_retry': False,
+    'retries': 1,
+    'retry_delay': timedelta(minutes=5),
+}
+
+# Instantiate a DAG with the defined default_args
+dag = DAG(
+    'traffic_flow',
+    default_args=default_args,
+    description='A simple example DAG',
+    schedule_interval=timedelta(days=1),  # Set the schedule interval to run daily
+)
+
+
+def task_a_function():
+    print("Extracting Data")
+
+task_a_task = PythonOperator(
+    task_id='Extract',
+    python_callable=task_a_function,
+    dag=dag,
+)
+
+
+def task_b_function():
+    print("loading data")
+
+task_b_task = PythonOperator(
+    task_id='load',
+    python_callable=task_b_function,
+    dag=dag,
+)
+def task_c_function():
+    print("transforming data")
+
+task_c_task = PythonOperator(
+    task_id='transform',
+    python_callable=task_c_function,
+    dag=dag,
+)
+
+
+# Define the order and dependencies between tasks in the DAG
+task_a_task >> task_b_task >> task_c_task
