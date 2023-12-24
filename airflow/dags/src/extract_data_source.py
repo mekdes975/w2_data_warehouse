@@ -17,7 +17,7 @@ class get_data:
         
        
         return df1
-    def get_data1(**kwargs):
+    def get_data2(**kwargs):
         
         # Read the CSV file into a pandas DataFrame
         df= pd.read_csv('/home/hp/Downloads/20181024_d1_0830_0900(2).csv',index_col=False,delimiter = '; ')
