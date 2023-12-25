@@ -14,7 +14,7 @@ default_args = {
     'email_on_failure': False,
     'email_on_retry': False,
     'retries': 1,
-    'retry_delay': timedelta(minutes=5),
+    
 }
 
 # Instantiate a DAG with the defined default_args
@@ -61,3 +61,4 @@ task_c_task = PythonOperator(
 
 # Define the order and dependencies between tasks in the DAG
 task_a_task >> task_b_task >> task_c_task
+
