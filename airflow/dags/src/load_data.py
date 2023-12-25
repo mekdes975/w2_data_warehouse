@@ -67,3 +67,4 @@ class DataLoadToPostgres:
         conn.close()
 
 # Usage
+print('hello')
