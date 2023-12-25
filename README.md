@@ -5,7 +5,7 @@ This repository contains the necessary information and resources to set up a sca
 Business Need
 
 The objective of this project is to assist the city traffic department in improving traffic flow and undertaking various data-driven projects by leveraging the vehicle trajectory data collected from multiple locations in the city. This data will provide critical insights and intelligence to optimize traffic management and support future initiatives.
-##Data Warehouse Architecture
+## Data Warehouse Architecture
 
 The data warehouse follows an ELT (Extract Load Transform) framework, which allows analytic engineers to set up transformation workflows as needed. The architecture consists of the following components:
 
@@ -33,7 +33,8 @@ This repository is organized as follows:
 
 ## Conclusion
 
-By setting up this scalable data warehouse for city traffic data, you can efficiently store, process, and analyze vehicle trajectory data collected from swarm UAVs and static roadside cameras. The ELT framework using DBT allows you to define and manage data transformations effectively, while Airflow ensures the orchestration and scheduling of the data pipeline. With this infrastructure in place, you can support various downstream projects and initiatives to improve traffic flow and gain critical intelligence from the collected data
 
 for more explanation: 
 https://medium.com/@mekmeskassa/week-2-989ade54ba3c 
+
+
