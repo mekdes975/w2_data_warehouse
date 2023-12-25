@@ -1,0 +1,12 @@
+[2023-12-25T13:12:49.166+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: traffic_flow.Extract scheduled__2023-07-26T00:00:00+00:00 [queued]>
+[2023-12-25T13:12:50.887+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: traffic_flow.Extract scheduled__2023-07-26T00:00:00+00:00 [queued]>
+[2023-12-25T13:12:50.887+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 2
+[2023-12-25T13:12:52.066+0000] {taskinstance.py:2192} INFO - Executing <Task(PythonOperator): Extract> on 2023-07-26 00:00:00+00:00
+[2023-12-25T13:12:53.942+0000] {standard_task_runner.py:60} INFO - Started process 435 to run task
+[2023-12-25T13:12:53.960+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'traffic_flow', 'Extract', 'scheduled__2023-07-26T00:00:00+00:00', '--job-id', '486', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmppng541vq']
+[2023-12-25T13:12:53.971+0000] {standard_task_runner.py:88} INFO - Job 486: Subtask Extract
+[2023-12-25T13:12:54.994+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2023-12-25T13:12:55.361+0000] {task_command.py:423} INFO - Running <TaskInstance: traffic_flow.Extract scheduled__2023-07-26T00:00:00+00:00 [running]> on host b33131cfaa7f
+[2023-12-25T13:13:50.187+0000] {local_task_job_runner.py:121} ERROR - Received SIGTERM. Terminating subprocesses
+[2023-12-25T13:13:53.362+0000] {process_utils.py:131} INFO - Sending 15 to group 435. PIDs of all processes in the group: [435]
+[2023-12-25T13:13:54.538+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 435

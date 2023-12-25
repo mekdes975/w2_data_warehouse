@@ -32,7 +32,6 @@ class CSVDataReader:
         self.df_track = pd.DataFrame(data=track_info, columns=track_c)
         self.df_Trajectory = pd.DataFrame(data=trajectory_info, columns=trajectory_c)
 
-print('hello')
- 
+
             
        

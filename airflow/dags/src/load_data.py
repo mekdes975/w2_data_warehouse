@@ -65,6 +65,3 @@ class DataLoadToPostgres:
     
     def close_connection(self, conn):
         conn.close()
-
-# Usage
-print('hello')
