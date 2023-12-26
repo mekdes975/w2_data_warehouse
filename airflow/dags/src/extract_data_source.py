@@ -33,6 +33,5 @@ class CSVDataReader:
         self.df_Trajectory = pd.DataFrame(data=trajectory_info, columns=trajectory_c)
 
 
- 
             
        

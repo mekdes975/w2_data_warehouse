@@ -5,6 +5,7 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 
 from src.extract_data_source import CSVDataReader
+from src.load_data import DataLoadToPostgres
 
 # Define default_args dictionary to specify the default parameters of the DAG
 default_args = {
@@ -42,7 +43,18 @@ task_a_task = PythonOperator(
 
 
 def task_b_function():
-    print("loading data")
+    loader = DataLoadToPostgres('/home/hp/Downloads/20181024_d1_0830_0900(2).csv')
+    loader.read_and_load_data()
+
+    conn = loader.connect_to_postgres('traffic_flow', 'postgres', '1234', 'localhost', '5438')
+    loader.create_schema(conn, 'trafficdata')
+    loader.create_tables(conn, 'trafficdata')
+
+    engine_str = 'postgresql://postgres:1234@localhost:5438/traffic_flow'
+    loader.load_to_postgres(engine_str, 'trafficdata')
+
+    loader.close_connection(conn)
+
 
 task_b_task = PythonOperator(
     task_id='load',

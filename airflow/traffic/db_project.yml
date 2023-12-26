@@ -1,0 +1,8 @@
+# dbt_project.yml
+
+name: 'my-dbt-project'
+version: '1.0'
+config-version: 2
+
+# Replace these values with your database connection details
+profile: 'default'
